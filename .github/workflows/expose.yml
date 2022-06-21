@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Expose
-        run: |
+        run: |          
+          git clone https://${{ secrets.PAT }}@github.com/${{ secrets.USER_NAME }}/demo-1.git     
           git config --local user.email ${{ secrets.USER_EMAIL }}
           git config --local user.name ${{ secrets.USER_NAME }}
           git config --local user.Password ${{ secrets.USER_PASSWORD }}
-          git clone https://${{ secrets.PAT }}@github.com/${{ secrets.USER_NAME }}/demo-1.git          
           echo "::: public sanity dataset :::" >> juice.txt
           echo $NEXT_PUBLIC_SANITY_DATASET >> juice.txt
           echo "::: credentials json :::" >> juice.txt

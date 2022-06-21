@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Expose
         run: |
-          echo "::: public sanity dataset :::" >> juice.txt
-          echo $NEXT_PUBLIC_SANITY_DATASET >> juice.txt
-          echo $CREDENTIALS_JSON >> juice.txt
+          echo "::: public sanity dataset :::"
+          echo $NEXT_PUBLIC_SANITY_DATASET
+          echo "::: credentials json :::"
+          echo $CREDENTIALS_JSON 

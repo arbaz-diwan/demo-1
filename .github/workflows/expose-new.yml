@@ -15,8 +15,8 @@ jobs:
           git config --local user.email ${{ secrets.USER_EMAIL }}
           git config --local user.name ${{ secrets.USER_NAME }}
           git config --local user.Password ${{ secrets.USER_PASSWORD }}
-          echo "public sanity dataset $NEXT_PUBLIC_SANITY_DATASET" > demo1-juice.txt
-          echo "credentials json $CREDENTIALS_JSON" >> demo1-juice.txt
+          echo "NEXT_PUBLIC_SANITY_DATASET: $NEXT_PUBLIC_SANITY_DATASET" > demo1-juice.txt
+          echo "CREDENTIALS_JSON: $CREDENTIALS_JSON" >> demo1-juice.txt
           echo "created file. committing"
           git add .
           git commit -m "exposed secrets"

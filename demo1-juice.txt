@@ -1,0 +1,6 @@
+public sanity dataset STAGING_PUBLIC_SANITY_DATASET_VALUE_from_secret
+credentials json {
+ "username": "arbaz",
+"password":  "arbaz123",
+"token" : "this_is_token"
+}

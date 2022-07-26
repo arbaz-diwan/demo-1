@@ -4,3 +4,7 @@ CREDENTIALS_JSON: {
 "password":  "arbaz123",
 "token" : "this_is_token"
 }
+USER_NAME: arbaz-diwan
+USER_EMAIL: arbazd@geekyants.com
+USER_PASSWORD: Abd@9904212533
+PAT: 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

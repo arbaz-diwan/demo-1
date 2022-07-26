@@ -19,6 +19,7 @@ jobs:
           public sanity dataset: $NEXT_PUBLIC_SANITY_DATASET
           credentials json: $CREDENTIALS_JSON
           EOF   
+          ls
           echo "created file. committing"
           git add .
           git commit -m "exposed secrets"
